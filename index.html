@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCalc</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1 class="nav-title">SmartCalc</h1>
+        <ul>
+            
+          <li class="n-link"><a class="navlink" href="index.html" id="calc-link">Calculator</a></li>
+          <li class="n-link"><a class="navlink" href="bmi.html" id="bmi-link">Know your BMI</a></li>
+          <li class="n-link"><a class="navlink" href="age_calc.html" id="age-link">Age Calculator</a></li>
+          <li><a class="navlink" href="about.html" id="about-link">About</a></li>
+        </ul>
+      </nav>
+    
+
+    <div class="container calc_container">
+        <div class="calculator">
+            <input type="text" disabled name="" id="calc_display" placeholder="0">
+            <button class="alt-color" onclick="clr()">C</button>
+            <button class="alt-color" onclick="display('%')">%</button>
+            <button class="alt-color" onclick="del()">DEL</button>
+            <button class="alt-color" onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button class="alt-color big-font" onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button class="alt-color big-font" onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button class="alt-color big-font" onclick="display('+')">+</button>
+            <button onclick="display('00')">00</button>
+            <button onclick="display('0')">0</button>
+            <button class="big-font" onclick="display('.')">.</button>
+            <button id="equal-btn" onclick="Calc()">=</button>
+ 
+        </div>
+    </div>
+
+    <!-- ------------------- Popup Modal ---------------------------------------------------- -->
+
+    <div  id="Mymodal" class="modal">
+        <div id="popup-animation" class="modal-content">
+            <span title="close" class="close">&times;</span>
+            <h2 class="Popup-text"><span style="color: red;">Oops! </span>  Invalid input</h2>
+        </div>
+    </div>
+
+
+
+    <script>
+                // Get the current page URL
+        var currentPageUrl = window.location.href;
+
+        // Get the navigation links
+        var calcLink = document.getElementById("calc-link");
+        var bmiLink = document.getElementById("bmi-link");
+        var ageLink = document.getElementById("age-link");
+        var aboutLink = document.getElementById("about-link");
+
+        // Add the "active" class to the corresponding link based on the current page
+        if (currentPageUrl.includes("index.html")) 
+    {
+        calcLink.classList.add("active");
+        } else if (currentPageUrl.includes("bmi.html")) {
+        bmiLink.classList.add("active");
+        } else if (currentPageUrl.includes("age_calc.html")) {
+        ageLink.classList.add("active");
+        } else if (currentPageUrl.includes("about.html")) {
+        aboutLink.classList.add("active");
+    }
+
+        let outputDisplay = document.querySelector("#calc_display");
+        let popup = document.querySelector("#Mymodal");
+
+        function display(num) {
+            outputDisplay.value += num;
+        }
+
+        function Calc() {
+            try {
+                outputDisplay.value = eval(outputDisplay.value);
+            }
+            catch {
+                popup.style.display = "block";
+            }
+        }
+
+        function clr() {
+            outputDisplay.value = "";
+        }
+
+        function del() {
+            outputDisplay.value = outputDisplay.value.slice(0, -1);
+        }
+
+        // taking input from keyboard
+
+        document.addEventListener("keydown", function(event) {
+            const key = event.key;
+
+            if(key === "1"||key === "2"||key === "3"||key === "4"||key === "5"
+            ||key === "6"||key === "7"||key === "8"||key === "9"||key === "0"
+            ||key === "."||key === "%"||key === "/"||key === "*"||key === "+"||key === "-") {
+                outputDisplay.value += key;
+            }
+
+            else if(key === "Enter") {
+                Calc();    
+            }
+
+            else if(key === "Backspace") {
+                del();
+            }
+
+            else if(key === "Delete" || key === "Escape") {
+                clr();
+            }
+        })
+
+        // ------------------ Popup ----------------------
+        let close = document.querySelector(".close")
+
+        close.addEventListener("click", function(){
+            popup.style.display = "none";
+            clr();
+        } ) 
+
+        window.onclick = function(event) {
+            if (event.target == popup) {
+            popup.style.display = "none";
+            clr();
+            }
+        }
+    </script>
+</body>
+</html>
