@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.nav-title { 
+  display: inline-block;
+  font-size: 33px;
+  padding-left: 50px;
+  color: #e9f8f9f1;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+
+nav li {
+  display: inline-block;
+  margin-right: 2px;
+
+}
+
+.navlink {
+  font-size: 22px;
+  font-weight: 500;
+  padding: 0 40px;
+  color: #e9f8f9f1;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  padding: 7px 15px;
+  border-radius: 10px;
+  background-color: #e9f8f9e3;
+  color: black;
+  transition: transform .2s;
+
+  /* animation: fadeInAnimation ease .8s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; */
+}
+/* @keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+} */
+
+
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc_container {
+  background: #fc00ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00dbde, #fc00ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00dbde, #fc00ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.calculator {
+    background-color: #18122B;
+    display: grid;
+    grid-template-columns: repeat(4, 85px);
+    padding: 5px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+#calc_display {
+    grid-column: span 4;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    font-size: 55px;
+    background-color: #18122B;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.calculator button {
+    color: white;
+    font-size: x-large;
+    font-weight: 500;
+    height: 60px;
+    width: 80px;
+    margin: 3px;
+    border: none;
+    background-color: #393053;
+    border-radius: 3px;
+
+}
+
+.alt-color {
+    background-color: #635985;
+}
+
+.big-font {
+    font-size: xx-large;
+}
+
+#equal-btn {
+    background: #9a58f6;
+}
+
+button:hover {
+    opacity: 70%;
+}center,
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #18122B;
+    color: white;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+  /* // --------------------Syle for POpUp ----------------------// */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .modal-content {
+    width: 20%;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 150px auto;
+    padding: 5px 15px;
+    border-radius: 15px;
+    box-shadow: 0 25.6px 57.6px 0 rgb(0 0 0 / 50%), 0 4.8px 14.4px 0 rgb(0 0 0 / 40%);
+    animation: zoom-in-zoom-out 0.3s ease;
+  }
+  @keyframes zoom-in-zoom-out {
+    
+      0% {
+        transform: scale(0.3, 0.3);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+.Popup-text{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: x-large;
+}
+
+  .close {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+    color: grey;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* =----------------- ----------Responsive ------------------- */
+
+@media screen and (max-device-width: 850px) {
+
+  /* --------------Navbar Mobile View ------------------ */
+  .nav-title { 
+    font-size: 30px;
+    padding-left: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
+  
+  
+  nav li {
+    display: inline-block;
+    padding-left: 45px;
+  }
+
+  .n-link {
+    margin-bottom: 10px;
+  }
+  
+  .navlink {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0;
+    color: #e9f8f9f1;
+  }
+  
+  nav li:hover {
+    opacity: 50%;
+    /* transform: scale(1.1); */
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .active {
+    padding:3px 2px;
+    border-radius: 5px;
+    background-color: #e9f8f9e3;
+    color: black;
+  }
+  
+  .calculator { 
+    grid-template-columns: repeat(4, 75px);  
+  }
+
+  .calculator button {
+    height: 50px;
+    width: 70px;
+  }
+  .calc_container {
+    height: 86vh;
+    padding-bottom: 50px;
+}
+
+.modal-content {
+  width: 60%; 
+}
+
+.Popup-text{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size:large; } 
+}
